@@ -5,7 +5,7 @@ const location = process.argv[2];
 
 if (!location) return;
 
-geocode(process.argv[2], (error, { latitude, longitude, location}) => {
+geocode(location, (error, { latitude, longitude, location}) => {
   if (error) {
     return console.log(error);
   }
