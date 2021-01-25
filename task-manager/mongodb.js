@@ -1,8 +1,5 @@
 // CRUD
 
-// const mongodb = require('mongodb');
-// const MongoClient = mongodb.MongoClient;
-// const ObjectID = mongodb.ObjectID;
 const { MongoClient, ObjectID } = require('mongodb')
 
 const connectionURL = 'mongodb://127.0.0.1:27017';
@@ -15,50 +12,27 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
   const db = client.db(databaseName);
 
-  // db.collection('users').insertOne({
-  //   name: 'Vikram',
-  //   age: 26,
-  // }, (error, result) => {
+  // db.collection('users').findOne({ _id: new ObjectID('600e6f19940d5b82f6e3a181') }, (error, user) => {
   //   if (error) {
-  //     return console.log('Unable to insert user');
+  //     return console.log('Unable to fetch');
   //   }
   //
-  //   console.log(result.ops);
-  // });
+  //   console.log(user);
+  // })
 
-  // db.collection('users').insertMany([
-  //   {
-  //     name: 'Jen',
-  //     age: 28
-  //   }, {
-  //     name: 'Gunther',
-  //     age: 27
-  //   }
-  // ], (error, result) => {
+  // db.collection('users').find({ age: 31 }).toArray((error, users) => {
+  //   console.log(users);
+  // })
+
+  // db.collection('tasks').findOne({ _id: ObjectID('600e6cfa18a3fe81ccf6cb8e')}, (error, task) => {
   //   if (error) {
-  //     return console.log('Unable to insert documents');
+  //     return console.log('Unable to fetch');
   //   }
   //
-  //   console.log(result.ops);
-  // });
+  //   console.log(task);
+  // })
 
-
-  // db.collection('tasks').insertMany([
-  //   {
-  //     description: 'Do chores',
-  //     completed: true
-  //   }, {
-  //     description: 'Shop',
-  //     completed: true
-  //   }, {
-  //     description: 'Dentist',
-  //     completed: false
-  //   }
-  // ], (error, result) => {
-  //   if (error) {
-  //     return console.log('Unable to insert documents');
-  //   }
-  //
-  //   console.log(result.ops);
+  // db.collection('tasks').find({ completed: true }).toArray((error, tasks) => {
+  //   console.log(tasks);
   // });
 });
